@@ -92,15 +92,11 @@ function AudioIO(options) {
   }
 
   ioStream.on('close', () => {
-    console.log('AudioIO close');
     ioStream.quit();
   });
   ioStream.on('finish', () => {
-    console.log('AudioIO finish');
     ioStream.quit();
   });
-  ioStream.on('end', () => console.log('AudioIO end'));
-  ioStream.on('error', err => console.error('AudioIO:', err));
 
   return ioStream;
 }
