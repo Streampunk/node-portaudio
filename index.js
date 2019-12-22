@@ -36,9 +36,7 @@ function AudioIO(options) {
     audioIOAdon.read(size, (err, buf) => {
       if (err)
         process.nextTick(() => ioStream.emit('error', err));
-        ioStream.push(buf);
-      if (buf && buf.length < size)
-      ioStream.push(null);
+      ioStream.push(buf);
     });
   };
 
@@ -94,15 +92,11 @@ function AudioIO(options) {
   }
 
   ioStream.on('close', () => {
-    console.log('AudioIO close');
     ioStream.quit();
   });
   ioStream.on('finish', () => {
-    console.log('AudioIO finish');
     ioStream.quit();
   });
-  ioStream.on('end', () => console.log('AudioIO end'));
-  ioStream.on('error', err => console.error('AudioIO:', err));
 
   return ioStream;
 }
