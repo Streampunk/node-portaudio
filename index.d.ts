@@ -32,6 +32,14 @@ export interface DeviceInfo {
 /** Get list of supported devices */
 export function getDevices(): DeviceInfo[]
 
+export interface DefaultDevices {
+  defaultInputDevice: DeviceInfo
+  defaultOutputDevice: DeviceInfo
+}
+
+/** Get default input and output device */
+export function getDefaultDevices(): DefaultDevices
+
 /** The details returned from getHostAPIs for a particular device */
 export interface HostInfo {
   readonly id: number
