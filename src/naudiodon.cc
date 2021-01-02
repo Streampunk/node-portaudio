@@ -18,6 +18,7 @@
 #include "GetDevices.h"
 #include "GetHostAPIs.h"
 #include "AudioIO.h"
+#include "GetDefaultDevices.h"
 
 napi_value Create(napi_env env, napi_callback_info info) {
   napi_status status;
@@ -43,9 +44,10 @@ napi_value Init(napi_env env, napi_value exports) {
   napi_property_descriptor desc[] = {
     DECLARE_NAPI_METHOD("getDevices", streampunk::getDevices),
     DECLARE_NAPI_METHOD("getHostAPIs", streampunk::getHostAPIs),
-    DECLARE_NAPI_METHOD("create", Create)
+    DECLARE_NAPI_METHOD("create", Create),
+    DECLARE_NAPI_METHOD("getDefaultDevices", streampunk::getDefaultDevices)
   };
-  status = napi_define_properties(env, exports, 3, desc);
+  status = napi_define_properties(env, exports, 4, desc);
   CHECK_STATUS;
 
   return exports;

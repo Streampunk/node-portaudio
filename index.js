@@ -27,6 +27,7 @@ exports.SampleFormat32Bit = 32;
 
 exports.getDevices = portAudioBindings.getDevices;
 exports.getHostAPIs = portAudioBindings.getHostAPIs;
+exports.getDefaultDevices = portAudioBindings.getDefaultDevices;
 
 function AudioIO(options) {
   const audioIOAdon = portAudioBindings.create(options);
