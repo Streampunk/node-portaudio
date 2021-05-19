@@ -96,6 +96,47 @@ An example of the output is:
 ```
 Note that the `defaultInput` and `defaultOutput` values can be used as to specify which device to use for playback or recording with optional parameter `deviceId`.
 
+### Getting default Devices
+
+To get the default devices, call the `getDefaultDevices` function.
+
+```js
+var portAudio = require('naudiodon');
+
+console.log(portAudio.getDefaultDevices());
+```
+
+An example of the output is:
+
+```js
+{
+  defaultInputDevice: {
+    id: 0,
+    name: 'Built-in Microphone',
+    maxInputChannels: 2,
+    maxOutputChannels: 0,
+    defaultSampleRate: 44100,
+    defaultLowInputLatency: 0,
+    defaultLowOutputLatency: 0,
+    defaultHighInputLatency: 0,
+    defaultHighOutputLatency: 0,
+    hostAPIName: 'Core Audio'
+  },
+  defaultOutputDevice: {
+    id: 1,
+    name: 'Built-in Output',
+    maxInputChannels: 0,
+    maxOutputChannels: 2,
+    defaultSampleRate: 44100,
+    defaultLowInputLatency: 0,
+    defaultLowOutputLatency: 0,
+    defaultHighInputLatency: 0,
+    defaultHighOutputLatency: 0,
+    hostAPIName: 'Core Audio'
+  }
+}
+```
+
 ### Playing audio
 
 Playing audio involves streaming audio data to a new instance of `AudioIO` configured with `outOptions` - which returns a Node.js [Writable Stream](https://nodejs.org/dist/latest-v6.x/docs/api/stream.html#stream_writable_streams):
